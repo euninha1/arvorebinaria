@@ -4,11 +4,13 @@ import java.util.Scanner;
 import java.util.LinkedList;
 import java.util.Queue;
 
+
 public class ArvoreBinaria<T> {
     
     private no root;
     public String userinput;
     private no targetedNode;
+    
     
     public ArvoreBinaria(){
         
@@ -195,5 +197,31 @@ public class ArvoreBinaria<T> {
         System.out.print(" " + node.getName());
         }
     }
+    
+    //ARVORE DE BUSCA// 
+    public static void InserirNo(Arvore novo, Arvore arvore) {
+		if(arvore == null) {
+			arvore = novo;
+		} else {
+			
+			if (novo.valor < arvore.valor) {
+				
+				if (arvore.noEsquerdo == null) {
+					arvore.noEsquerdo = novo;
+				} else {
+					InserirNo(novo, arvore.noEsquerdo);
+				}
+				
+			} else { 
+					if (arvore.noDireito == null) {
+						arvore.noDireito = novo;
+					} else {
+						InserirNo(novo, arvore.noDireito);
+					}
+			}
+			
+		}
+	}
+    
     
 }
